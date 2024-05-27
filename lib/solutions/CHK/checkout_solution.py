@@ -115,4 +115,3 @@ def checkout(skus: str) -> int:
     total += sku_dict['H'] * h_count
 
     return total
-
