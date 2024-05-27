@@ -9,6 +9,10 @@ def checkout(skus: str) -> int:
     b_count = 0
     c_count = 0
     d_count = 0
+
+    if not {'A', 'B', 'C', 'D'} - set(skus):
+        return -1
+
     if 'A' in skus:
         a_count = skus.count('A')
         multiple = a_count // 3
@@ -31,10 +35,8 @@ def checkout(skus: str) -> int:
         d_count = skus.count('D')
         total += 15 * d_count
 
-    if not a_count and not b_count and not c_count and not d_count:
-        return -1
-
     return total
+
 
 
 
