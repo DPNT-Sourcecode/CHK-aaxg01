@@ -10,7 +10,7 @@ def checkout(skus: str) -> int:
     c_count = 0
     d_count = 0
 
-    if not {'A', 'B', 'C', 'D'} - set(skus):
+    if not {'A', 'B', 'C', 'D'}.intersection(set(skus)):
         return -1
 
     if 'A' in skus:
@@ -36,8 +36,3 @@ def checkout(skus: str) -> int:
         total += 15 * d_count
 
     return total
-
-
-
-
-
