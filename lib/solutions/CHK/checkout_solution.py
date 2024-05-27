@@ -12,7 +12,7 @@ def checkout(skus: str) -> int:
     e_count = 0
     f_count = 0
 
-    if not set(skus) <= {'A', 'B', 'C', 'D', 'E'}:
+    if not set(skus) <= {'A', 'B', 'C', 'D', 'E', 'F'}:
         return -1
 
     if 'A' in skus:
@@ -70,6 +70,7 @@ def checkout(skus: str) -> int:
     total += 10 * f_count
 
     return total
+
 
 
 
