@@ -10,6 +10,7 @@ def checkout(skus: str) -> int:
     c_count = 0
     d_count = 0
     e_count = 0
+    f_count = 0
 
     if not set(skus) <= {'A', 'B', 'C', 'D', 'E'}:
         return -1
@@ -33,6 +34,14 @@ def checkout(skus: str) -> int:
 
         if b_count:
             b_count += (-1 * e_multiple)
+
+    if 'F' in skus:
+        f_count += skus.count('F')
+        f_multiple = f_count // 2
+        f_remainder = f_count % 2
+
+        if f_count and f_multiple and f_remainder:
+            f_count += (-1 * f_multiple)
 
     a_multiple = a_count // 3
     a_remainder = a_count % 3
@@ -60,6 +69,7 @@ def checkout(skus: str) -> int:
     total += 40 * e_count
 
     return total
+
 
 
 
