@@ -69,4 +69,3 @@ def checkout(skus: str) -> int:
     total += 10 * f_count
 
     return total
-
