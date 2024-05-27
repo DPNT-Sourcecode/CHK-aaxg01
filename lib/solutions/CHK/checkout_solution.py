@@ -36,11 +36,11 @@ def checkout(skus: str) -> int:
     a_multiple = a_count // 3
     a_remainder = a_count % 3
 
-    if a_count % 3:
+    if a_count % 3 == 0:
         a_multiple = a_count // 3
         a_remainder = a_count % 3
         total += (a_multiple * 130) + (a_remainder * 50)
-    elif a_count % 5:
+    elif a_count % 5 == 0:
         a_multiple = a_count // 5
         a_remainder = a_count % 5
         total += (a_multiple * 200) + (a_remainder * 50)
@@ -57,4 +57,5 @@ def checkout(skus: str) -> int:
     total += 40 * e_count
 
     return total
+
 
