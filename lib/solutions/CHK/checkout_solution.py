@@ -67,8 +67,10 @@ def checkout(skus: str) -> int:
     total += 20 * c_count
     total += 15 * d_count
     total += 40 * e_count
+    total += 10 * f_count
 
     return total
+
 
 
 
