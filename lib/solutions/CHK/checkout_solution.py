@@ -1,6 +1,9 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus: str) -> int:
+    if not skus:
+        return 0
+
     skus_lower = skus.lower()
     total = 0
     a_count = 0
@@ -29,9 +32,10 @@ def checkout(skus: str) -> int:
         d_count = skus_lower.count('d')
         total += 15 * d_count
 
-    if not a_count or not b_count or not c_count or not d_count:
+    if not a_count and not b_count and not c_count and not d_count:
         return -1
 
     return total
+
 
 
