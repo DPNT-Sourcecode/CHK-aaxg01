@@ -36,8 +36,3 @@ def checkout(skus: str) -> int:
         total += 15 * d_count
 
     return total
-
-
-
-
-
