@@ -37,11 +37,10 @@ def checkout(skus: str) -> int:
 
     if 'F' in skus:
         f_count += skus.count('F')
-        f_multiple = f_count // 2
-        f_remainder = f_count % 2
+        f_multiple = f_count // 3
+        f_remainder = f_count % 3
 
-        if f_count and f_multiple and f_count >= 3:
-            f_count += (-1 * f_multiple)
+        f_count += (-1 * f_multiple)
 
     a_multiple = a_count // 3
     a_remainder = a_count % 3
@@ -70,3 +69,4 @@ def checkout(skus: str) -> int:
     total += 10 * f_count
 
     return total
+
