@@ -10,6 +10,8 @@ def checkout(skus: str) -> int:
     c_count = 0
     d_count = 0
 
+    print({'A', 'B', 'C', 'D'}.intersection(set(skus)).intersection(set(skus)))
+
     if not {'A', 'B', 'C', 'D'}.intersection(set(skus)):
         return -1
 
@@ -39,5 +41,6 @@ def checkout(skus: str) -> int:
 
 
 if __name__ == '__main__':
-    print(checkout('-'))
+    print(checkout('ABCa'))
+
 
