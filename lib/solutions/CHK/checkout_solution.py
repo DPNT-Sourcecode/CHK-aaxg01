@@ -31,7 +31,8 @@ def checkout(skus: str) -> int:
         e_multiple = e_count // 2
         e_remainder = e_count % 2
 
-        b_count += (-1 * e_multiple)
+        if b_count:
+            b_count += (-1 * e_multiple)
 
     a_multiple = a_count // 3
     a_remainder = a_count % 3
@@ -59,6 +60,7 @@ def checkout(skus: str) -> int:
     total += 40 * e_count
 
     return total
+
 
 
 
