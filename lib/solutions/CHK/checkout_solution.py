@@ -36,82 +36,98 @@ def checkout(skus: str) -> int:
         return 0
 
     total = 0
-    a_count = 0
-    b_count = 0
-    c_count = 0
-    d_count = 0
-    e_count = 0
-    f_count = 0
-    g_count = 0
-    h_count = 0
 
     if not set(skus) <= set(sku_dict.keys()):
         return -1
 
-    if 'A' in skus:
-        a_count += skus.count('A')
+    for key, value in sku_dict.items():
+        count = skus.count(key)
 
-    if 'B' in skus:
-        b_count += skus.count('B')
+        if key == 'A':
+            if count // 5:
+                multiple = count // 5
+                remainder = count % 5
+                total += (multiple * 200)
+                count = remainder
 
-    if 'C' in skus:
-        c_count += skus.count('C')
+            if count // 3:
+                multiple = count // 3
+                remainder = count % 3
+                total += (multiple * 130)
+                count = remainder
 
-    if 'D' in skus:
-        d_count += skus.count('D')
+            total += count * value
+        elif key == 'B':
+            multiple = count // 2
+            remainder = count % 2
+            total += (multiple * 45) + (remainder * value)
+        elif key == 'E':
+            multiple = count // 2
 
-    if 'E' in skus:
-        e_count += skus.count('E')
-        e_multiple = e_count // 2
+            if 'B' in skus:
+                total += (-1 * sku_dict['B'] * multiple)
+            total += count * value
+        elif key == 'F':
+            multiple = count // 3
+            count += (-1 * multiple)
+            total += count * value
 
-        if b_count:
-            b_count += (-1 * e_multiple)
+        elif key == 'H':
+            if count // 10:
+                multiple = count // 10
+                remainder = count % 10
+                total += (multiple * 80)
+                count = remainder
 
-    if 'F' in skus:
-        f_count += skus.count('F')
-        f_multiple = f_count // 3
+            if count // 5:
+                multiple = count // 5
+                remainder = count % 5
+                total += (multiple * 45)
+                count = remainder
+            total += count * value
+        elif key == 'K':
+            multiple = count // 2
+            remainder = count % 2
+            total += (multiple * 150) + (remainder * value)
+        elif key == 'N':
+            multiple = count // 3
 
-        f_count += (-1 * f_multiple)
+            if 'M' in skus:
+                total += (-1 * sku_dict['M'] * multiple)
+            total += count * value
+        elif key == 'P':
+            multiple = count // 5
+            remainder = count % 5
+            total += (multiple * 200) + (remainder * value)
+        elif key == 'Q':
+            multiple = count // 3
+            remainder = count % 3
+            total += (multiple * 80) + (remainder * value)
+        elif key == 'R':
+            multiple = count // 3
 
-    if 'G' in skus:
-        g_count += skus.count('G')
-    if 'H' in skus:
-        h_count += skus.count('H')
+            if 'Q' in skus:
+                total += (-1 * sku_dict['Q'] * multiple)
+            total += count * value
+        elif key == 'U':
+            multiple = count // 4
+            count += (-1 * multiple)
+            total += count * value
+        elif key == 'V':
+            if count // 3:
+                multiple = count // 3
+                remainder = count % 3
+                total += (multiple * 130)
+                count = remainder
 
-    if a_count // 5:
-        a_multiple = a_count // 5
-        a_remainder = a_count % 5
-        total += (a_multiple * 200)
-        a_count = a_remainder
+            if count // 2:
+                multiple = count // 2
+                remainder = count % 2
+                total += (multiple * 90)
+                count = remainder
 
-    if a_count // 3:
-        a_multiple = a_count // 3
-        a_remainder = a_count % 3
-        total += (a_multiple * 130)
-        a_count = a_remainder
-
-    if h_count // 10:
-        h_multiple = h_count // 10
-        h_remainder = h_count % 10
-        total += (h_multiple * 80)
-        h_count = h_remainder
-
-    if h_count // 5:
-        h_multiple = h_count // 5
-        h_remainder = h_count % 5
-        total += (h_multiple * 45)
-        h_count = h_remainder
-
-    b_multiple = b_count // 2
-    b_remainder = b_count % 2
-
-    total += sku_dict['A'] * a_count
-    total += (b_multiple * 45) + (b_remainder * sku_dict['B'])
-    total += sku_dict['C'] * c_count
-    total += sku_dict['D'] * d_count
-    total += sku_dict['E'] * e_count
-    total += sku_dict['F'] * f_count
-    total += sku_dict['G'] * g_count
-    total += sku_dict['H'] * h_count
+            total += count * value
+        else:
+            total += count * value
 
     return total
